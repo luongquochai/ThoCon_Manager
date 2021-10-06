@@ -10,6 +10,7 @@ const fetch = (...args) => import('node-fetch').then(({
 }) => fetch(...args));
 const delay = require('delay');
 const icon = require('../../icon.json');
+const mySecret = process.env['token']
 
 module.exports = {
     name: 'ytt',
@@ -46,7 +47,7 @@ module.exports = {
             validate: null
           }),
           headers: {
-            "Authorization": `Bot ${icon.token}`,
+            "Authorization": `Bot ${mySecret}`,
             "Content-Type": "application/json"
           }
         }).then(res => res.json())
